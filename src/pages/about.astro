@@ -1,5 +1,20 @@
 ---
+import "/home/hao-gu/lolidk-/src/styles/global.css";
+const pageTitle = "About";
+const identity = {
+  firstName: "Sarah",
+  country: "Canada",
+  occupation: "Technical Writer",
+  hobbies: ["photography", "birdwatching", "baseball"],
+};
+const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
+const skillColor = "navy";
+const fontWeight = "bold";
+const textCase = "uppercase";
 
+const happy = true;
+const finished = false;
+const goal = 3;
 ---
 
 <html lang="en">
@@ -8,15 +23,40 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Vivere</title>
+		<title>{pageTitle}</title>
+        <style define:vars={{skillColor, fontWeight, textCase}}>
+            h1 {
+              color: purple;
+              font-size: 4rem;
+            }
+            .skill {
+                color: var(--skillColor);
+                text-transform: var(--textCase);
+                font-weight: var(--fontWeight);
+            }
+        </style>
 	</head>
 	<body>
         <a href="/"> Home </a>
         <a href="/about/">About</a>
         <a href="/blog"> Blog </a>
-        
 
-		<h1>About ____</h1>
+		<h1> {pageTitle} </h1>
+        <ul>
+            <li> My name is {identity.firstName}</li>
+            {identity.hobbies.length >= 1 &&
+                <li>Two of my hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]} and {identity.hobbies[2]}</li>
+            }
+        </ul>
+        <p> my skills are</p> 
+        <ul>
+            {skills.map((skill) => <li class="skill">{skill}</li>)}
+        </ul>
+        {happy && <p>I am happy to be learning Astro!</p>}
+
+        {finished && <p>I finished this tutorial!</p>}
+
+        {goal === 3 ? <p>My goal is to finish in 3 days.</p> : <p>My goal is not 3 days.</p>}
         <p> we are a group of deidcated high schoolers striving to make philosophy accesible for all</p>
         <h2> Mission </h2>
         <p>blaj blah blah </p>
