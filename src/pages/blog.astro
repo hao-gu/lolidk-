@@ -1,4 +1,7 @@
 ---
+import "/home/hao-gu/lolidk-/src/styles/global.css";
+import Footer from '../components/footer.astro';
+import Header from '../components/header.astro';
 const pageTitle = "Blog";
 ---
 
@@ -11,9 +14,7 @@ const pageTitle = "Blog";
 		<title>{pageTitle}</title>
 	</head>
 	<body>
-        <a href="/">Home</a>
-        <a href="/about/">About</a>
-        <a href="/blog">Blog</a>
+        <Header />
         
 		<h1>{pageTitle}</h1>
         <ul>
@@ -21,5 +22,6 @@ const pageTitle = "Blog";
             <li><a href="/posts/post-2/">Post 2</a></li>
             <li><a href="/posts/post-3/">Post 3</a></li>
         </ul>
+		<Footer />
 	</body>
 </html>
